@@ -1,0 +1,25 @@
+.contenti {
+  padding: 45px 5px 0 5px;
+}
+.colgrup {
+  position: relative;
+  float: left;
+}
+
+.col-left {
+  width: 15%;
+}
+
+.col-center {
+  width: 70%;
+}
+
+.col-righit {
+  width: 15%;
+}
+
+@media (max-width: 900px) {
+  .colgrup {
+    width: 100%;
+  }
+}

@@ -1,0 +1,17 @@
+.but_left {
+  width: 100%;
+  border-radius: 5px;
+  background-color: black;
+  color: ivory;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.but_left:hover {
+  color: deeppink;
+}
+
+.but_left:active {
+  width: 80%;
+  margin: 0 10% 0 10%;
+}

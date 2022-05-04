@@ -1,0 +1,396 @@
+/* start  sus-float-content */
+.sus-float-content {
+  position: relative;
+  float: left;
+  margin-left: 5px;
+  border: solid 1px black;
+  margin-top: 5px;
+}
+.fsonebi {
+  width: 49%;
+  background-color: #a6d8ff;
+  height: auto;
+}
+.gamotvla {
+  width: 49%;
+  height: auto;
+}
+/* end sus-float-content */
+/* start  grid-fsonebi */
+#grid-fsonebi {
+  display: grid;
+  width: 98%;
+  height: auto;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 3px;
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+}
+#grid-fsonebi > div:nth-of-type(13) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#grid-fsonebi > input:nth-of-type(1) {
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
+#grid-fsonebi > div {
+  text-align: center;
+  font-style: oblique;
+  font-size: 1vw;
+}
+#grid-fsonebi > #feri {
+  text-align: center;
+  font-style: oblique;
+  background-color: #f0e10f;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1vw;
+}
+#grid-fsonebi > .gs {
+  text-align: center;
+  font-style: oblique;
+  /* background-color: darkgrey; */
+  border-radius: 5px;
+  border: 0;
+  font-size: 1vw;
+}
+/* end grid-fsonebi */
+hr {
+  margin-bottom: 2px;
+}
+/* start ტოტალ ფსონები */
+.damalva {
+  display: none;
+}
+.tf-sus {
+  margin-bottom: 2px;
+}
+.tf-sus > input {
+  border: 0;
+  font-style: oblique;
+  font-size: 1vw;
+}
+.tf-but {
+  width: 7%;
+  border-radius: 8px;
+  background-color: #f1310aa8;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+  font-size: calc(1vw - 1px);
+}
+.tf-sus > .kushi {
+  position: relative;
+  width: 12%;
+}
+.tf-sus > .fsoni {
+  position: relative;
+  width: 19%;
+}
+.tf-sus > .suf_mog {
+  position: relative;
+  width: 19%;
+}
+.tf-sus > .bukmker {
+  position: relative;
+  width: 19%;
+}
+/* end ტოტალ ფსონები */
+/* start  grid-gamotvla */
+#grid-gamotvla-all {
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-columns: 100%;
+  padding: 3px;
+  grid-row-gap: 2px;
+}
+#grid-gamotvla-totali {
+  background-color: #a6d8ff;
+}
+#grid-gamotvla-birja {
+  background-color: #fac9d1;
+}
+#grid-gamotvla-totali,
+#grid-gamotvla-birja {
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 3px;
+  grid-row-gap: 2px;
+}
+#grid-gamotvla-totali > div,
+#grid-gamotvla-birja > div {
+  text-align: center;
+  font-style: oblique;
+  font-size: 1vw;
+}
+#grid-gamotvla-totali > input,
+#grid-gamotvla-birja > input,
+#grid-gamotvla-birja > select {
+  text-align: center;
+  font-style: oblique;
+  width: 98%;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1vw;
+}
+/* end grid-gamotvla */
+/* start sus-float-mogeba */
+.sus-float-mogeba {
+  position: relative;
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-style: oblique;
+  font-size: 0.9vw;
+}
+.float-mogeba-totali {
+  background-color: #a6d8ff;
+  height: auto;
+}
+.float-mogeba-birja {
+  background-color: #fac9d1;
+  height: auto;
+}
+/* end sus-float-mogeba */
+/* start grid-totali, birja*/
+#grid-totali {
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-columns: 50% 50%;
+  padding: 3px;
+  grid-row-gap: 2px;
+}
+#grid-birja {
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-columns: 50% 50%;
+  padding: 3px;
+  grid-row-gap: 2px;
+}
+/* end grid-totali, birja*/
+/* start grid-witelimwvane_jami*/
+#grid-witelimwvane_jami {
+  display: grid;
+  width: 100%;
+  height: auto;
+  background-color: #f0f0e9d2;
+  grid-template-columns: 10% 15% 20% 20% 20% 15%;
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+}
+#grid-witelimwvane_jami > input {
+  text-align: center;
+  font-style: oblique;
+  background-color: #f0e10f;
+  width: 100%;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1vw;
+}
+#grid-witelimwvane_jami > div:nth-of-type(3) {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  width: 99%;
+}
+/* end grid-witelimwvane_jami */
+/* start წითელი მწვანე ფსონები*/
+.fsoni-wm .bf-sus:first-child {
+  margin-top: 5px;
+}
+.bf-sus {
+  margin-bottom: 2px;
+}
+.fsoni-wm {
+  margin: 0;
+  background-color: #fac9d1; 
+}
+.fsoni-wm input, button {
+  text-align: center;
+  font-style: oblique;
+  border: 0;
+  font-size: 1vw;
+}
+.fsoni-wm .but-clear {
+  position: relative;
+  width: 10%;
+  height: auto;
+  border-radius: 5px;
+  background-color: #f1310aa8;
+  color: #ffffff;
+  cursor: pointer;
+ 
+}
+.kushi_bir {
+  position: relative;
+  width: 15%; 
+  height: auto;
+}
+.witeli {
+  position: relative;
+  width: 20%;
+  height: auto;
+  color: red;
+}
+.mwvane {
+  position: relative;
+  width: 20%;
+  height: auto;
+  color: green;
+}
+.chamketibirja {
+  position: relative;
+  width: 25%;
+  height: auto;
+}
+/* end  წითელი მწვანე ფსონები*/
+/* start but stilebi */
+.but,
+.but_wm {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+  font-size: calc(1vw - 1px);
+}
+.but:hover {
+  color: #13e9c2;
+}
+.but_ {
+  background-color: darkorange;
+}
+/* end but stilebi */
+/* start fokus kontroli */
+.fk {
+  background-color: rgb(32, 136, 139);
+  color: #ffffff;
+}
+/*  end  fokus kontroli*/
+/* კომენტარები */
+.coment {
+  position: relative;
+  display: inline-block;
+}
+.coment .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 999;
+}
+.coment:hover .tooltiptext {
+  visibility: visible;
+}
+.coment .tooltiptext {
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+/* end კომენტარები*/
+/* start ferebi */
+.mog_shavi {
+  color: black;
+  font-weight: normal;
+}
+.mog_witeli {
+  color: red;
+  font-weight: bolder;
+}
+.mog_mwvane {
+  color: green;
+  font-weight: bolder;
+}
+/* end ferebi */
+/* start @media stilebi */
+@media (max-width: 900px) {
+  .but {
+    font-size: calc(1vw + 4px);
+    overflow: hidden;
+  }
+  #grid-fsonebi > div,
+  #grid-fsonebi > input,
+  #grid-gamotvla-totali > div,
+  #grid-gamotvla-totali > input,
+  #grid-gamotvla-birja > div,
+  #grid-gamotvla-birja > input,
+  #grid-gamotvla-birja > select,
+  #grid-witelimwvane_jami,
+  .fsoni-wm input, button,
+  .sus-float-mogeba,
+  .tf-sus > input,
+  .tf-but {
+    font-size: calc(1vw + 4px);
+    overflow: hidden;
+  }
+}
+@media (max-width: 550px) {
+  .sus-float-content {
+    width: 99%;
+  }
+  .but {
+    font-size: calc(1vw + 8px);
+    overflow: hidden;
+  }
+  #grid-fsonebi > div,
+  #grid-fsonebi > input,
+  #grid-gamotvla-totali > div,
+  #grid-gamotvla-totali > input,
+  #grid-gamotvla-birja > div,
+  #grid-gamotvla-birja > input,
+  #grid-gamotvla-birja > select,
+  #grid-witelimwvane_jami > input,
+  #grid-witelimwvane_jami > button,
+  .fsoni-wm input, button,
+  .sus-float-mogeba,
+  .tf-sus > input,
+  .tf-but {
+    font-size: calc(1vw + 8px);
+    overflow: hidden;
+  }
+}
+/* end @media stilebi */
+
+/* #grid-gamotvla {
+  display: grid;
+  width: 98%;
+  height: auto;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 3px;
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+}
+#grid-gamotvla > div {
+  text-align: center;
+  font-style: oblique;
+  font-size: 1vw;
+}
+#grid-gamotvla > input,
+#grid-gamotvla > select {
+  text-align: center;
+  font-style: oblique;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1vw;
+}
+#grid-gamotvla > div:nth-of-type(11) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#grid-gamotvla > div:nth-of-type(13) {
+  grid-column-start: 4;
+  grid-column-end: 6;
+} */

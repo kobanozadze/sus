@@ -1,0 +1,39 @@
+.sus_ShenaxuliGundebi {
+  /* margin-top: 20px; */
+  position: fixed;
+  width: 15%;
+  height: auto;
+  font-size: calc(1vw - 1px);
+  font-style: oblique;
+  color: cornflowerblue;
+  text-align: center;
+  
+}
+
+.sus_ShenaxuliGundebi > div {
+  background-color: black;
+  margin-bottom: 3px;
+  padding: 3px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sus_ShenaxuliGundebi > div:hover {
+  background-color: aqua;
+}
+
+.sus_ShenaxuliGundebi > div:active {
+  background-color: brown;
+  color: azure;
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 900px) {
+  .sus_ShenaxuliGundebi {
+    
+    position: relative;
+    width: 100%;
+    
+  }
+}
