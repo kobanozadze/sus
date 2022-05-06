@@ -131,7 +131,7 @@ function BirAgebuliProc(Sn) {
   return BirAgebuliProc_;
 }
 
-function MogebisGamotvla(Sn) {
+function MogebisGamotvla(Sn, ev) {
   if (Sn.substring(0, 3) === "sus") {
     const TotaliFsoni_obj = document.querySelector(
       "." + Sn + " .gamotvla .fsoni_kalk"
@@ -282,9 +282,10 @@ function MogebisGamotvla(Sn) {
     const fokusinput = document.querySelector("input:focus") || "";
     const fokusinput_id = fokusinput.id;
     if (fokusinput_id !== "gs") {
+     const arai_no_fk = ["kushi_kalk", "fsoni_kalk", "mosatx", "valdeb"];
      for (let i = 0; i < NewVal_aray.length; i++) {
       const j = parseFloat(NewVal_aray[i]) - parseFloat(OldVal_aray[i]);
-      if (j !== 0) {
+      if (j !== 0 && arai_no_fk.indexOf(ev.target.classList[0]) === -1) {
         document
           .querySelector("." + Sn + " #but-damaxsovreba")
           .classList.add("but_");
