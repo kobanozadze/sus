@@ -63,64 +63,24 @@ document.addEventListener("click", function (event) {
   // end SUS - ების დამატება
   // start SUS - გასუფთავება
   if (but_name_id === "but-allclear") {
-    const FokusElementi_obj = event.target;
-    const FokusElementi_value = FokusElementi_obj.innerHTML;
     const Sn = SectionName(event);
-    const input_all_obj = document.querySelectorAll("." + Sn + " input");
     const ButSave_obj = document.querySelector("." + Sn + " #but-damaxsovreba");
+    const GundName_value = document.querySelector("." + Sn + " .gs").value;
 
     if (ButSave_obj.classList.value !== "but but_") {
-      if (FokusElementi_value === "გასუფთავება") {
-        for (const iterator of input_all_obj) {
-          iterator.value = "";
-        }
-      } else {
-        for (const iterator of input_all_obj) {
-          if (iterator.classList.value !== "bukmker gs") {
-            iterator.value = "";
-          }
-        }
-      }
-
-      SumSufMog_Motx_Mog(event, "");
-      const tf_obj = document.querySelectorAll("." + Sn + " .tf-sus");
-      for (const iterator_tf of tf_obj) {
-        if (iterator_tf.id !== "tf-0") {
-          iterator_tf.remove();
-        }
-      }
-
-      const bf_obj = document.querySelectorAll("." + Sn + " .bf-sus");
-      for (const iterator_bf of bf_obj) {
-        if (iterator_bf.id !== "bf-0") {
-          iterator_bf.remove();
-        }
-      }
-
-      document.querySelector("." + Sn + " .proc-options").value = "3";
-
-      if (FokusElementi_value === "გასუფთავება") {
-        Tf_Veli_sus_Add(Sn, "off");
-        Bf_Veli_sus_Add(Sn, "off");
-      }
-      document
-        .querySelector("." + SectionName(event) + " #but-damaxsovreba")
-        .classList.remove("but_");
-
-      sus_obj = document.querySelector("." + Sn + " .gs");
-      sus_obj.disabled = false;
-      sus_obj.classList.remove("fk");
-      GundebisShemseba();
-
-      document.querySelector("." + Sn + " #gs").focus();
+      SusDelete(event, Sn);
     } else {
-      Toastmesijebi(
-        "info",
-        "error.svg",
-        "გუნდი დასამახსოვრებელია",
-        "ჯერ დაიმახსოვრეთ შემდეგ გაასუფთავეთ",
-        5000
-      );
+      cuteAlert({
+        type: "info",
+        title: "გუნდი: " + GundName_value + "  დასამახსოვრებელია",
+        message: "გუნდზე ბოლო ცვლილება არ შეინახება და ისე გასუფთავდება",
+        img: "img/info.svg",
+      }).then((e) => {
+        if (e === "ok") {
+          SusDelete(event, Sn);
+          RemoveClaslist_Select(event, "off", Sn);
+        }
+      });
     }
   }
   // end SUS - გასუფთავება
@@ -220,7 +180,7 @@ document.addEventListener("click", function (event) {
       document
         .querySelector("." + SectionName(event) + " #but-damaxsovreba")
         .classList.remove("but_");
-      RemoveClaslist_Select(event, "off");
+      RemoveClaslist_Select(event, "off", "");
       sus_obj = document.querySelector("." + Sn + " .gs");
       sus_obj.disabled = true;
       sus_obj.setAttribute("name", Sn);
@@ -232,7 +192,6 @@ document.addEventListener("click", function (event) {
         5000
       );
     } else {
-      // alert("არასაკმარისი მონაცემები");
       Toastmesijebi(
         "warning",
         "info.svg",
@@ -285,7 +244,7 @@ document.addEventListener("change", function (event) {
   SumSufMog_Motx_Mog(event, "");
 
   ChenjKontroli_BukBirja(event);
-  RemoveClaslist_Select(event, "on");
+  RemoveClaslist_Select(event, "on", "");
 });
 // ______________________________________________________________
 // function  --------------------------------------------------
@@ -302,9 +261,9 @@ function SectionName(ev) {
   return SectName;
 }
 // =================================================
-function SumSufMog_Motx_Mog(event, Sn) {
-  const S_Name = Sn.length > 0 ? Sn : SectionName(event);
-  SumFsonOrSufmog(S_Name, event, "off"); // ?
+function SumSufMog_Motx_Mog(ev, Sn) {
+  const S_Name = Sn.length > 0 ? Sn : SectionName(ev);
+  SumFsonOrSufmog(S_Name, ev, "off"); // ?
   const arrayMosatxoviMonacemebi = MosatxoviMonacemebisAgeba(S_Name);
   const araiMosVal = Motxovnis_Gamotvla_Sasurveli(
     arrayMosatxoviMonacemebi,
@@ -329,7 +288,7 @@ function SumSufMog_Motx_Mog(event, Sn) {
     Valdeb_Obj.value = araiMosVal.Valdebuleba;
   }
 
-  MogebisGamotvla(S_Name);
+  MogebisGamotvla(S_Name, ev);
 }
 // =================================================
 function Suf_Mog_Gamotvla(event) {
@@ -389,8 +348,8 @@ function Suf_Mog_Gamotvla(event) {
   }
 }
 // =================================================
-function SumFsonOrSufmog(Sn, event, tfbf) {
-  const S_IdName_ = event.target.parentNode.id;
+function SumFsonOrSufmog(Sn, ev, tfbf) {
+  const S_IdName_ = ev.target.parentNode.id;
   //-----------
   if (S_IdName_.substring(0, 2) === "tf" || tfbf === "tf") {
     let sumF = 0;
@@ -649,7 +608,12 @@ function sus_ShenaxuliGundebi() {
   let arai_sus = "";
   for (let i = 0; i < localStorage.length; i++) {
     const element = localStorage.key(i);
-    arai_sus += `<div onmousedown="return false" id="` + element + `">` + element + `</div>`;
+    arai_sus +=
+      `<div onmousedown="return false" id="` +
+      element +
+      `">` +
+      element +
+      `</div>`;
   }
   document.querySelector(".sus_ShenaxuliGundebi").innerHTML = arai_sus;
 }
@@ -737,19 +701,73 @@ function ChenjKontroli_BukBirja(ev) {
   }
 }
 // ბოლოს სად მოხდა ცვლილება
-function RemoveClaslist_Select(ev, onoff) {
-  const Sn = SectionName(ev);
+function RemoveClaslist_Select(ev, onoff, S_Name) {
+  const Sn =  (S_Name.length > 0 ? S_Name : SectionName(ev));
   const FokusAddColor = document.querySelectorAll("." + Sn + " input");
   for (const iterator of FokusAddColor) {
     iterator.classList.remove("fk");
   }
   const procClear_clas = document.querySelector("." + Sn + " .proc-options");
   procClear_clas.classList.remove("fk");
-  //
-  if (onoff === "on") {
+  // 
+  const arai_no_fk = ["kushi_kalk", "fsoni_kalk", "mosatx", "valdeb"];
+  if (onoff === "on" && arai_no_fk.indexOf(ev.target.classList[0]) === -1 ) {
     ev.target.classList.add("fk");
   }
 }
+
+// start sus delete
+  function SusDelete(ev, Sn) {
+    let sus_obj = "";
+    const FokusElementi_obj = ev.target;
+    const FokusElementi_value = FokusElementi_obj.innerHTML;
+    const input_all_obj = document.querySelectorAll("." + Sn + " input");
+
+    if (FokusElementi_value === "გასუფთავება") {
+      for (const iterator of input_all_obj) {
+        iterator.value = "";
+      }
+    } else {
+      for (const iterator of input_all_obj) {
+        if (iterator.classList.value !== "bukmker gs") {
+          iterator.value = "";
+        }
+      }
+    }
+
+    SumSufMog_Motx_Mog(ev, Sn);
+    const tf_obj = document.querySelectorAll("." + Sn + " .tf-sus");
+    for (const iterator_tf of tf_obj) {
+      if (iterator_tf.id !== "tf-0") {
+        iterator_tf.remove();
+      }
+    }
+
+    const bf_obj = document.querySelectorAll("." + Sn + " .bf-sus");
+    for (const iterator_bf of bf_obj) {
+      if (iterator_bf.id !== "bf-0") {
+        iterator_bf.remove();
+      }
+    }
+
+    document.querySelector("." + Sn + " .proc-options").value = "3";
+
+    if (FokusElementi_value === "გასუფთავება") {
+      Tf_Veli_sus_Add(Sn, "off");
+      Bf_Veli_sus_Add(Sn, "off");
+    }
+    document
+      .querySelector("." + Sn + " #but-damaxsovreba")
+      .classList.remove("but_");
+
+    sus_obj = document.querySelector("." + Sn + " .gs");
+    sus_obj.disabled = false;
+    sus_obj.classList.remove("fk");
+    GundebisShemseba();
+
+    document.querySelector("." + Sn + " #gs").focus();
+  }
+// end sus delete
 
 //
 /*
