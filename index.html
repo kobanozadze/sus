@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/pozsus.css">
 </head>
 
 <body>
@@ -27,9 +28,9 @@
                     <div class="row">
                         <div class="column">
                             <h3>Category 1</h3>
-                            <a href="index.html">sus_პირველი ვარიანტი</a>
-                            <a href="content_2.php">sus_მეორე ვარიანტი</a>
-                            <a href="#">Link 3</a>
+                            <a href="#">__</a>
+                            <a href="#">__</a>
+                            <a href="#">__</a>
                         </div>
                         <div class="column">
                             <h3>Category 2</h3>
@@ -52,14 +53,15 @@
     </div>
     <div class="contenti">
         <div class="col-left colgrup">
-            <button class="but_left standartuli_sus">სტანდარტული SUS - ი</button>
+            <button class="but_left standartuli_sus">SUS - ი სტანდარტული</button>
+            <button id="but_pozsus" class="but_left pozsus">SUS - ი პოზიციებით</button>
         </div>
         <!--  -->
         <div class="col-center colgrup">
             <!--  -->
-            <div style="text-align: center;" class="sigane"></div>
+            <div style="text-align: center;" class="sigane">0 - 0</div>
             <hr>
-            <section class="sus-0 sus-float damalva">
+            <section class="sus-0 sus-float sus_count damalva">
                 <div id="fsonebi" class="fsonebi sus-float-content">
                     <div id="grid-fsonebi">
                         <button id="but-damaxsovreba" class="but" tabIndex="-1" accesskey="k">დამახსოვრება</button>
@@ -82,13 +84,16 @@
                         <!--  -->
                         <div><b>ტოტალ ფსონები</b></div>
                         <div></div>
-                        <input name="city" type="text" onfocus="this.select()" id="gs" class="bukmker gs" list="GundisSaxel" placeholder="გუნდის სახელი" />
+                        <input name="city" type="text" onfocus="this.select()" id="gs" class="bukmker gs"
+                            list="GundisSaxel" placeholder="გუნდის სახელი" />
                         <!--  -->
                         <input type="text" class="kushi-jami" id="feri" tabIndex="-1" placeholder="კუში" readonly>
                         <input type="text" class="fsoni-jami" id="feri" tabIndex="-1" placeholder="ფსონი" readonly>
-                        <input type="text" class="suf_mog-jami" id="feri" tabIndex="-1" placeholder="სუფ მოგება" readonly>
+                        <input type="text" class="suf_mog-jami" id="feri" tabIndex="-1" placeholder="სუფ მოგება"
+                            readonly>
                         <div></div>
-                        <button class="but_add but_fs but coment " tabIndex="-1" accesskey="k"><span class="tooltiptext">სტროფის დამატება</span>+</button>
+                        <button class="but_add but_fs but coment " tabIndex="-1" accesskey="k"><span
+                                class="tooltiptext">სტროფის დამატება</span>+</button>
                     </div>
                     <datalist id="GundisSaxel">
 
@@ -96,9 +101,12 @@
                     <hr>
                     <!-- ===== -->
                     <div id="tf-0" class="tf-sus damalva">
-                        <button class="but-clear tf-but coment" tabIndex="-1" accesskey="k"><span class="tooltiptext">სტროფის წაშლა</span>&times;</button>
-                        <input type="number" step="0.1" onfocus="this.select()" class="kushi" tabIndex="0" placeholder="კუში">
-                        <input type="number" step="0.50" onfocus="this.select()" class="fsoni" tabIndex="0" placeholder="ფსონი">
+                        <button class="but-clear tf-but coment" tabIndex="-1" accesskey="k"><span
+                                class="tooltiptext">სტროფის წაშლა</span>&times;</button>
+                        <input type="number" step="0.1" onfocus="this.select()" class="kushi" tabIndex="0"
+                            placeholder="კუში">
+                        <input type="number" step="0.50" onfocus="this.select()" class="fsoni" tabIndex="0"
+                            placeholder="ფსონი">
                         <input type="text" id="suf_mog" class="suf_mog" tabIndex="-1" placeholder="სუფ მოგება" readonly>
                         <input name="city" type="text" class="bukmker" list="bukmker" />
                         <datalist id="bukmker">
@@ -111,9 +119,12 @@
                         </datalist>
                     </div>
                     <div id="tf-1" class="tf-sus">
-                        <button class="but-clear tf-but coment" tabIndex="-1" accesskey="k"><span class="tooltiptext">სტროფის წაშლა</span>&times;</button>
-                        <input type="number" step="0.1" onfocus="this.select()" class="kushi" tabIndex="0" placeholder="კუში">
-                        <input type="number" step="0.50" onfocus="this.select()" class="fsoni" tabIndex="0" placeholder="ფსონი">
+                        <button class="but-clear tf-but coment" tabIndex="-1" accesskey="k"><span
+                                class="tooltiptext">სტროფის წაშლა</span>&times;</button>
+                        <input type="number" step="0.1" onfocus="this.select()" class="kushi" tabIndex="0"
+                            placeholder="კუში">
+                        <input type="number" step="0.50" onfocus="this.select()" class="fsoni" tabIndex="0"
+                            placeholder="ფსონი">
                         <input type="text" id="suf_mog" class="suf_mog" tabIndex="-1" placeholder="სუფ მოგება" readonly>
                         <input name="city" type="text" class="bukmker" list="bukmker" />
                         <datalist id="bukmker">
@@ -137,13 +148,15 @@
                                 <div><b>ფსონი</b></div>
                                 <div><b>სუფ_მოგება</b></div>
                                 <div><b>მთლ_მოგ</b></div>
-                                <div class="coment"><b><span class="tooltiptext">სასურველი მოგება ტოტალში</span>სას მოგება</b></div>
+                                <div class="coment"><b><span class="tooltiptext">სასურველი მოგება ტოტალში</span>სას
+                                        მოგება</b></div>
 
                                 <input type="number" step="0.1" onfocus="this.select()" class="kushi_kalk">
                                 <input type="number" step="1.0" onfocus="this.select()" class="fsoni_kalk">
                                 <input type="text" class="suf_mog_kalk" tabIndex="-1" readonly>
                                 <input type="text" class="mtl_mog_kalk" tabIndex="-1" readonly>
-                                <input type="number" step="0.50" onfocus="this.select()" class="sasmog_total" tabIndex="-1">
+                                <input type="number" step="0.50" onfocus="this.select()" class="sasmog_total"
+                                    tabIndex="-1">
                             </div>
                         </div>
                         <!--  -->
@@ -153,7 +166,8 @@
                                 <div><b>მოსათხოვი</b></div>
                                 <div><b>ვალდებულება</b></div>
                                 <div><b>პროცენტი</b></div>
-                                <div class="coment"><b><span class="tooltiptext">სასურველი მოგება ბირჟაზე</span>სას მოგება</b></div>
+                                <div class="coment"><b><span class="tooltiptext">სასურველი მოგება ბირჟაზე</span>სას
+                                        მოგება</b></div>
 
                                 <input type="number" step="0.1" onfocus="this.select()" class="bir_kushi">
                                 <input type="number" step="0.50" onfocus="this.select()" class="mosatx" tabIndex="-1">
@@ -163,7 +177,8 @@
                                     <option>0</option>
                                     <option>5</option>
                                 </select>
-                                <input type="number" step="0.50" onfocus="this.select()" class="sasmog_birja" tabIndex="-1">
+                                <input type="number" step="0.50" onfocus="this.select()" class="sasmog_birja"
+                                    tabIndex="-1">
                             </div>
                         </div>
                         <!--  -->
@@ -196,7 +211,8 @@
                                 <input type="text" class="kushi-jami_bir" tabIndex="-1" placeholder="კუში" readonly>
                                 <input type="text" class="witeli-jami" tabIndex="-1" placeholder="წითელი" readonly>
                                 <input type="text" class="mwvane-jami" tabIndex="-1" placeholder="მწვანე" readonly>
-                                <button class="but_add but_wm coment" tabIndex="-1" accesskey="j"><span class="tooltiptext">სტროფის დამატება</span>+</button>
+                                <button class="but_add but_wm coment" tabIndex="-1" accesskey="j"><span
+                                        class="tooltiptext">სტროფის დამატება</span>+</button>
                                 <div></div>
                                 <div>
                                     <hr>
@@ -216,16 +232,22 @@
                             <div id="bf-0" class="bf-sus damalva">
                                 <button id="but-clear" class="but-clear" tabIndex="-1" accesskey="k">&times;</button>
                                 <input type="text" class="kushi_bir" tabIndex="-1" placeholder="კუში" readonly>
-                                <input type="number" step="0.50" onfocus="this.select()" class="witeli " tabIndex="0" placeholder="წითელი">
-                                <input type="number" step="0.50" onfocus="this.select()" class="mwvane" tabIndex="0" placeholder="მწვანე">
-                                <input name="city" type="text" class="chamketibirja" list="chamketibirja" placeholder="ბირჟის სახელი" />
+                                <input type="number" step="0.50" onfocus="this.select()" class="witeli " tabIndex="0"
+                                    placeholder="წითელი">
+                                <input type="number" step="0.50" onfocus="this.select()" class="mwvane" tabIndex="0"
+                                    placeholder="მწვანე">
+                                <input name="city" type="text" class="chamketibirja" list="chamketibirja"
+                                    placeholder="ბირჟის სახელი" />
                             </div>
                             <div id="bf-1" class="bf-sus">
                                 <button id="but-clear" class="but-clear" tabIndex="-1" accesskey="k">&times;</button>
                                 <input type="text" class="kushi_bir" tabIndex="-1" placeholder="კუში" readonly>
-                                <input type="number" step="0.50" onfocus="this.select()" class="witeli " tabIndex="0" placeholder="წითელი">
-                                <input type="number" step="0.50" onfocus="this.select()" class="mwvane" tabIndex="0" placeholder="მწვანე">
-                                <input name="city" type="text" class="chamketibirja" list="chamketibirja" placeholder="ბირჟის სახელი" />
+                                <input type="number" step="0.50" onfocus="this.select()" class="witeli " tabIndex="0"
+                                    placeholder="წითელი">
+                                <input type="number" step="0.50" onfocus="this.select()" class="mwvane" tabIndex="0"
+                                    placeholder="მწვანე">
+                                <input name="city" type="text" class="chamketibirja" list="chamketibirja"
+                                    placeholder="ბირჟის სახელი" />
                             </div>
 
                         </div>
@@ -233,9 +255,20 @@
                     </div>
                 </div>
             </section>
+            <!--  -->
+
            
 
+
         </div>
+        <datalist id="pozsus_bukmker">
+            <option value="აჭარა"></option>
+            <option value="ბეთლაივი"></option>
+            <option value="კროკო"></option>
+            <option value="კრისტალი"></option>
+            <option value="ევროპა"></option>
+            <option value="ლიდერი"></option>
+        </datalist>
         <!--  -->
         <div class="col-righit colgrup">
             <div class="sus_ShenaxuliGundebi">
@@ -247,6 +280,10 @@
     <script type="text/javascript" src="jskodi/el_add.js"></script>
     <script type="text/javascript" src="jskodi/ProgFunqciebi.js"></script>
     <script type="text/javascript" src="jskodi/cute-alert.js"></script>
+    <script type="text/javascript" src="jskodi/pozsus.js"></script>
+    <script type="text/javascript" src="jskodi/htmlchablonebi.js"></script>
+    <script type="text/javascript" src="jskodi/obieqtebi.js"></script>
+
 </body>
 
 </html>

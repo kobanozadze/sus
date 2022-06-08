@@ -1,0 +1,438 @@
+.pozsus_Count {
+  border: 1px solid seagreen;
+  height: auto;
+  width: 97.6%;
+  margin-left: 10px;
+  font-size: 1.05vw;
+  font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
+    sans-serif;
+}
+.pozsus_tavi {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  background-color: #94c8c8a1;
+  height: auto;
+  border-bottom: dashed #b9b9c1;
+  font-family: inherit;
+  font-size: inherit;
+}
+.pozsus_contenti {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: rgb(210, 226, 226);
+  font-family: inherit;
+  font-size: inherit;
+}
+/*  */
+/* start  accordion*/
+.accordion {
+  background-color: #1d2329;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-family: inherit;
+  font-size: inherit;
+}
+.accordion > label {
+  cursor: pointer;
+}
+.active,
+.accordion:hover {
+  background-color: #1d2329;
+}
+.panel {
+  background-color: #7d95c0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+.accordion:after {
+  content: "\2206";
+  font-size: 20px;
+  color: #fff;
+  float: left;
+  margin-left: 5px;
+  margin-right: 25px;
+}
+.active:after {
+  content: "\2207";
+}
+.bazrisshedegi {
+  float: right;
+  margin-left: 25px;
+}
+.img_pozsus_bazari_clear {
+  width: 30px;
+  height: auto;
+}
+.img_pozsus_bazari_clear:hover {
+  background-color: #f02710;
+  border-radius: 25px;
+}
+.img_pozsus_bazari_clear:active {
+  background-color: #fff;
+  transform: rotate(0.72turn);
+}
+/* end accordion */
+/* start  pozsus_tavi */
+#id_grid_pozsus_tavi {
+  display: grid;
+  width: 97%;
+  grid-template-columns:
+    repeat(4, 5%)
+    1%
+    repeat(2, 5%)
+    1%
+    repeat(4, 5%)
+    1%
+    15%
+    1%
+    repeat(2, 7%)
+    repeat(3, 5%);
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  text-align: center;
+}
+#id_grid_pozsus_tavi > input[type="number"] {
+  font-weight: bolder;
+  text-align: center;
+}
+#id_grid_pozsus_tavi input,
+select {
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+}
+.taimi {
+  grid-column: 1 / 3;
+  grid-row: 1 / 1;
+}
+.taimi1_val {
+  grid-column: 1;
+  grid-row: 2;
+  font-family: inherit;
+}
+.taimi2_val {
+  grid-column: 2;
+  grid-row: 2;
+  font-family: inherit;
+}
+.dziritadi {
+  grid-column: 3 / 5;
+  grid-row: 1;
+}
+.dziritadi1_val {
+  grid-column: 3;
+  grid-row: 2;
+}
+.dziritadi2_val {
+  grid-column: 4;
+  grid-row: 2;
+}
+.gundsaxeli {
+  grid-column: 9 / 13;
+  grid-row: 1;
+}
+.gundsaxeli_val {
+  grid-column: 9 / 13;
+  grid-row: 2;
+}
+.pozadd {
+  grid-column: 6 / 8;
+  grid-row: 1;
+}
+.pozadd_val {
+  grid-column: 6 / 8;
+  grid-row: 2;
+}
+.sab_mog {
+  grid-column: 18 / 20;
+  grid-row: 1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  color: #162ced;
+}
+.sab_mog_val {
+  grid-column: 18 / 20;
+  grid-row: 2;
+}
+.but_pozsus_damaxsovreba {
+  display: none;
+  grid-column: 14;
+  grid-row: 1;
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+}
+.but_pozsus_gasuftaveba {
+  display: none;
+  grid-column: 16 / 18;
+  grid-row: 1;
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+}
+.img_pozsus_clear {
+  display: block;
+  grid-column: 20;
+  grid-row: 1 / 3;
+  cursor: pointer;
+  max-width: 70%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img_pozsus_clear:hover {
+  max-width: 80%;
+  height: auto;
+}
+.pozsus_proc-options {
+  grid-column: 16;
+  grid-row: 2;
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+}
+.prc {
+  grid-column: 15;
+  grid-row: 2;
+  color: darkblue;
+}
+/* end pozsus_tavi */
+/* start 3 პოზიციანი ბაზარი */
+#bazrebi_grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  text-align: center;
+}
+.bazariDAjami {
+  font-family: inherit;
+  font-size: 18px;
+  height: auto;
+}
+.bazari {
+  width: 50%;
+  height: auto;
+  padding: 5px;
+}
+.fsonebi_jami {
+  width: 50%;
+  height: auto;
+  padding: 5px;
+}
+.baz_jam {
+  position: relative;
+  float: left;
+}
+.pozsus_fsonebi {
+  width: 100%;
+  height: auto;
+}
+.pozsus_fsonebi .centrireba {
+  width: auto;
+  margin: auto;
+}
+/* end 3 პოზიციანი ბაზარი */
+/* start pozsus fsonebi_jami */
+.fsonebi_jami input {
+  font-size: inherit;
+  border: none;
+  border-radius: 5px;
+  background-color: yellow;
+}
+.fsonebi_jami .pozsus_jami_label_name {
+  color: #fff;
+}
+.tf {
+  width: 100%;
+  background-color: #1d2329;
+  padding: 4px;
+  color: #fff;
+}
+.flexsi_ {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 3px;
+}
+.fsonebi_jami .pozname_jami,
+.fsonebi_jami .p {
+  position: relative;
+  width: 10%;
+}
+.fsonebi_jami .kushi-jami,
+.fsonebi_jami .k {
+  position: relative;
+  width: 15%;
+}
+.fsonebi_jami .fsoni-jami,
+.fsonebi_jami .f {
+  position: relative;
+  width: 22%;
+}
+.fsonebi_jami .suf_mog-jami,
+.fsonebi_jami .sm {
+  position: relative;
+  width: 23%;
+}
+.fsonebi_jami .mm,
+.fsonebi_jami .mtl_mog-jami {
+  position: relative;
+  width: 23%;
+}
+/* end pozsus fsonebi_jami */
+/* start pozsus bazari */
+.flexsi_bazari {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 3px;
+}
+.bazari .k_,
+.bazari .vt_,
+.bazari .vl_ {
+  color: #fac9d1;
+}
+.bazari .p_,
+.bazari .r_ {
+  color: #fff;
+}
+.bazari input {
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 5px;
+  border: none;
+}
+.bazari .vitxovt_bazari,
+.bazari .valdeb_bazari,
+.bazari .kushi_bazari {
+  border: 1px solid #fac9d1;
+}
+.bazari .p,
+.bazari .pozname_bazari {
+  position: relative;
+  width: 10%;
+}
+.bazari .r,
+.bazari .bazari_realoba {
+  position: relative;
+  width: 22%;
+}
+.bazari .k,
+.bazari .kushi_bazari {
+  position: relative;
+  width: 15%;
+}
+.bazari .vt,
+.bazari .vitxovt_bazari {
+  position: relative;
+  width: 23%;
+}
+.bazari .vl,
+.bazari .valdeb_bazari {
+  position: relative;
+  width: 23%;
+}
+/* end pozsus bazari */
+/* start pozsus ტოტალ ფსონები*/
+.centrireba h4 {
+  margin-bottom: 10px;
+}
+.but-clear_pozsus {
+  position: relative;
+  width: 3%;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #f1310aa8;
+  color: #ffffff;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  margin-bottom: 3px;
+}
+.pozsus_poz_list {
+  position: relative;
+  width: 8%;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 8px;
+  border: 0;
+  margin-bottom: 3px;
+}
+.pozsus_kushi {
+  position: relative;
+  width: 12%;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 8px;
+  border: 0;
+  margin-bottom: 3px;
+}
+.pozsus_fsoni {
+  position: relative;
+  width: 22%;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 8px;
+  border: 0;
+  margin-bottom: 3px;
+}
+.pozsus_suf_mog {
+  position: relative;
+  width: 22%;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 8px;
+  border: 0;
+  margin-bottom: 3px;
+}
+.pozsus_bukmker {
+  position: relative;
+  width: 25%;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: italic;
+  color: #f02710;
+  border-radius: 8px;
+  border: 0;
+  margin-bottom: 3px;
+}
+.pozsus_fsonebi .tf-pozsus input[type="text"]:disabled {
+  background-color: #f1310aa8;
+  color: #fff;
+}
+/* end pozsus ტოტალ ფსონები*/
+/* start შედეგის გაფერადება */
+.shedegi_red {
+  background-color: red;
+  border-radius: 50%;
+}
+.shedegi_green {
+  background-color: #04fa04;
+  border-radius: 50%;
+}
+/* end შედეგის გაფერადება */
+/* start რეალობის გაფერადება */
+.shedegi_red_text {
+  color: red;
+}
+.tf .shedegi_green_text,
+.accordion .shedegi_green_text {
+  color: #7ef37e;
+}
+input.shedegi_green_text,
+#id_grid_pozsus_tavi .shedegi_green_text {
+  color: #0b920b;
+}
+/* end რეალობის გაფერადება */

@@ -52,7 +52,42 @@ document.addEventListener("click", function (event) {
   } // end თუ დაუკლიკეთ სტროფის დამატების კნოპკას
   // start თუ დაუკლიკეთ სტროფის წაშლას კნოპკას
   if (but_name.substring(0, 9) === "but-clear") {
-    event.target.parentNode.remove();
+    if (event.target.parentNode.classList.value === "tf-pozsus") {
+      const next_elem = event.target.parentNode.nextElementSibling;
+
+      if (next_elem) {
+        let i = 0;
+        const Poz_delete_Val =
+          event.target.parentNode.querySelector(".pozsus_poz_list").value;
+        const centrireba_all_poz =
+          event.target.parentNode.parentNode.querySelectorAll(
+            ".pozsus_poz_list"
+          );
+        centrireba_all_poz.forEach((e) => {
+          e.value === Poz_delete_Val ? i++ : "";
+        });
+
+        const pzsus_n = event.target.parentNode.getAttribute("data-pozsusname");
+        const pz_n = event.target.parentNode.getAttribute("data-bazariname");
+
+        if (i === 1) {
+          const Search_element = document.querySelector(
+            "." +
+              pzsus_n +
+              " .pozsus_contenti div#" +
+              pz_n +
+              " .fsonebi_jami [data-parent_pozname = '" +
+              Poz_delete_Val +
+              "']"
+          );
+          Search_element.remove();
+        }
+        event.target.parentNode.remove();
+        Fsonebis_Shejameba(pzsus_n, pz_n);
+      }
+    } else {
+      event.target.parentNode.remove();
+    }
     SumSufMog_Motx_Mog(event, "");
   }
   // end თუ დაუკლიკეთ სტროფის წაშლას კნოპკას
@@ -263,6 +298,9 @@ function SectionName(ev) {
 // =================================================
 function SumSufMog_Motx_Mog(ev, Sn) {
   const S_Name = Sn.length > 0 ? Sn : SectionName(ev);
+  if (S_Name.substring(0, 3) !== "sus") {
+    return;
+  }
   SumFsonOrSufmog(S_Name, ev, "off"); // ?
   const arrayMosatxoviMonacemebi = MosatxoviMonacemebisAgeba(S_Name);
   const araiMosVal = Motxovnis_Gamotvla_Sasurveli(
@@ -444,6 +482,9 @@ function SumFsonOrSufmog(Sn, ev, tfbf) {
 }
 
 function MosatxoviMonacemebisAgeba(Sn) {
+  if (Sn.substring(0, 3) !== "sus") {
+    return;
+  }
   const SasMog_total_ = document.querySelector(
     "." + Sn + " .gamotvla #grid-gamotvla-totali .sasmog_total"
   );
@@ -630,16 +671,17 @@ function GundebisShemseba() {
 function SusAdd(gund_name, ev) {
   const sus_chasasmeli_patch = document.querySelector(".col-center");
   const sus_dasakopirebeli_patch = document.querySelector(".sus-float");
-  const susBoloElementi = sus_chasasmeli_patch.lastElementChild.classList;
-  const susBoloElementi_nomeri =
-    parseInt(susBoloElementi.item(0).substring(4, 9)) + 1;
-
+  const sus_count = [...document.querySelectorAll(".sus_count")];
+  const k = sus_count[sus_count.length - 1].classList.value;
+  const o = k.indexOf(" ", 0);
+  const susBoloElementi_nomeri = parseInt(k.substring(4, o)) + 1;
+  //
   const sus_nomeri_obj = document.querySelector(".sus_nomeri");
   sus_nomeri_obj.innerHTML = "sus-" + susBoloElementi_nomeri;
 
   const sus_dakopirebuli = sus_dasakopirebeli_patch.cloneNode(true);
   const susNomeri = "sus-" + susBoloElementi_nomeri;
-  sus_dakopirebuli.classList = susNomeri + " sus-float";
+  sus_dakopirebuli.classList = susNomeri + " sus-float sus_count";
   sus_chasasmeli_patch.appendChild(sus_dakopirebuli);
   let sus_nomeri = "";
   if (gund_name.length > 1) {
@@ -702,71 +744,74 @@ function ChenjKontroli_BukBirja(ev) {
 }
 // ბოლოს სად მოხდა ცვლილება
 function RemoveClaslist_Select(ev, onoff, S_Name) {
-  const Sn =  (S_Name.length > 0 ? S_Name : SectionName(ev));
+  const Sn = S_Name.length > 0 ? S_Name : SectionName(ev);
+  if (Sn.substring(0, 3) !== "sus") {
+    return;
+  }
   const FokusAddColor = document.querySelectorAll("." + Sn + " input");
   for (const iterator of FokusAddColor) {
     iterator.classList.remove("fk");
   }
   const procClear_clas = document.querySelector("." + Sn + " .proc-options");
   procClear_clas.classList.remove("fk");
-  // 
+  //
   const arai_no_fk = ["kushi_kalk", "fsoni_kalk", "mosatx", "valdeb"];
-  if (onoff === "on" && arai_no_fk.indexOf(ev.target.classList[0]) === -1 ) {
+  if (onoff === "on" && arai_no_fk.indexOf(ev.target.classList[0]) === -1) {
     ev.target.classList.add("fk");
   }
 }
 
 // start sus delete
-  function SusDelete(ev, Sn) {
-    let sus_obj = "";
-    const FokusElementi_obj = ev.target;
-    const FokusElementi_value = FokusElementi_obj.innerHTML;
-    const input_all_obj = document.querySelectorAll("." + Sn + " input");
+function SusDelete(ev, Sn) {
+  let sus_obj = "";
+  const FokusElementi_obj = ev.target;
+  const FokusElementi_value = FokusElementi_obj.innerHTML;
+  const input_all_obj = document.querySelectorAll("." + Sn + " input");
 
-    if (FokusElementi_value === "გასუფთავება") {
-      for (const iterator of input_all_obj) {
+  if (FokusElementi_value === "გასუფთავება") {
+    for (const iterator of input_all_obj) {
+      iterator.value = "";
+    }
+  } else {
+    for (const iterator of input_all_obj) {
+      if (iterator.classList.value !== "bukmker gs") {
         iterator.value = "";
       }
-    } else {
-      for (const iterator of input_all_obj) {
-        if (iterator.classList.value !== "bukmker gs") {
-          iterator.value = "";
-        }
-      }
     }
-
-    SumSufMog_Motx_Mog(ev, Sn);
-    const tf_obj = document.querySelectorAll("." + Sn + " .tf-sus");
-    for (const iterator_tf of tf_obj) {
-      if (iterator_tf.id !== "tf-0") {
-        iterator_tf.remove();
-      }
-    }
-
-    const bf_obj = document.querySelectorAll("." + Sn + " .bf-sus");
-    for (const iterator_bf of bf_obj) {
-      if (iterator_bf.id !== "bf-0") {
-        iterator_bf.remove();
-      }
-    }
-
-    document.querySelector("." + Sn + " .proc-options").value = "3";
-
-    if (FokusElementi_value === "გასუფთავება") {
-      Tf_Veli_sus_Add(Sn, "off");
-      Bf_Veli_sus_Add(Sn, "off");
-    }
-    document
-      .querySelector("." + Sn + " #but-damaxsovreba")
-      .classList.remove("but_");
-
-    sus_obj = document.querySelector("." + Sn + " .gs");
-    sus_obj.disabled = false;
-    sus_obj.classList.remove("fk");
-    GundebisShemseba();
-
-    document.querySelector("." + Sn + " #gs").focus();
   }
+
+  SumSufMog_Motx_Mog(ev, Sn);
+  const tf_obj = document.querySelectorAll("." + Sn + " .tf-sus");
+  for (const iterator_tf of tf_obj) {
+    if (iterator_tf.id !== "tf-0") {
+      iterator_tf.remove();
+    }
+  }
+
+  const bf_obj = document.querySelectorAll("." + Sn + " .bf-sus");
+  for (const iterator_bf of bf_obj) {
+    if (iterator_bf.id !== "bf-0") {
+      iterator_bf.remove();
+    }
+  }
+
+  document.querySelector("." + Sn + " .proc-options").value = "3";
+
+  if (FokusElementi_value === "გასუფთავება") {
+    Tf_Veli_sus_Add(Sn, "off");
+    Bf_Veli_sus_Add(Sn, "off");
+  }
+  document
+    .querySelector("." + Sn + " #but-damaxsovreba")
+    .classList.remove("but_");
+
+  sus_obj = document.querySelector("." + Sn + " .gs");
+  sus_obj.disabled = false;
+  sus_obj.classList.remove("fk");
+  GundebisShemseba();
+
+  document.querySelector("." + Sn + " #gs").focus();
+}
 // end sus delete
 
 //
