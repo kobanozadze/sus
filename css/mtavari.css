@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 body {
-  background-color: antiquewhite;
+  background-color: #c2beba4f;
+  /* font-family: 'Mochiy Pop P One', sans-serif; Mochiy Pop P One, Noto Sans */
 }

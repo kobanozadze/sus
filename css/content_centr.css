@@ -1,3 +1,11 @@
+.col-center {
+  display: flex;
+  flex-direction: column;
+ 
+}
+.sus-float {
+  margin: 5px;
+}
 /* start  sus-float-content */
 .sus-float-content {
   position: relative;
@@ -50,7 +58,6 @@
 #grid-fsonebi > .gs {
   text-align: center;
   font-style: oblique;
-  /* background-color: darkgrey; */
   border-radius: 5px;
   border: 0;
   font-size: 1vw;
