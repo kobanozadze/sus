@@ -1,5 +1,6 @@
 .pozsus_Count {
   border: 1px solid seagreen;
+  border-top: 5px solid #e70af3;
   height: auto;
   width: 97.6%;
   margin-left: 10px;
@@ -62,6 +63,16 @@
   margin-right: 25px;
 }
 .active:after {
+  content: "\2207";
+}
+.all_poz_akecva:after {
+  content: "\2206";
+  font-size: 20px;
+  color: #080808;
+  float: left;
+  margin-left: 30%;
+}
+.active_:after {
   content: "\2207";
 }
 .bazrisshedegi {
@@ -177,6 +188,14 @@ select {
   display: none;
   grid-column: 16 / 18;
   grid-row: 1;
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+}
+.all_poz_akecva {
+  width: 20%;
+  grid-column: 14;
+  grid-row: 2;
   border-radius: 7px;
   cursor: pointer;
   border: none;
@@ -436,3 +455,9 @@ input.shedegi_green_text,
   color: #0b920b;
 }
 /* end რეალობის გაფერადება */
+/* start გოლების სტილები */
+.GolebisPoziciebi:disabled {
+  background-color: #1d2329;
+  color: #ffffff;
+}
+/* end გოლების სტილები */
