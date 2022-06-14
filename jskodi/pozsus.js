@@ -1,6 +1,7 @@
 const addpozsus_obj = document.querySelector(".col-center");
 //
 document.addEventListener("click", function (event) {
+  const PozSusName = PozSus_Name(event);
   const Click_classList_value = event.target.classList.value;
   //
   if (
@@ -27,8 +28,6 @@ document.addEventListener("click", function (event) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-      let PozSusName = event.target.parentNode.parentNode.classList.value;
-      PozSusName = PozSusName.substring(0, PozSusName.indexOf(" "));
       Shedegi(PozSusName);
     }
   }
@@ -36,40 +35,54 @@ document.addEventListener("click", function (event) {
   if (Click_classList_value === "img_pozsus_clear") {
     event.target.parentNode.parentNode.parentNode.remove();
   }
+  //
   if (Click_classList_value === "img_pozsus_bazari_clear bazrisshedegi") {
     const q = event.target.parentNode;
     const p = event.target.parentNode.nextElementSibling;
-    let PozSusName = event.target.parentNode.parentNode.parentNode.classList.value;
+    let PozSusName =
+      event.target.parentNode.parentNode.parentNode.classList.value;
     PozSusName = PozSusName.substring(0, PozSusName.indexOf(" "));
     q.remove();
-    p.remove(); 
+    p.remove();
     SabolooMogebebisAmokrifvaBazrebidan(PozSusName);
   }
-
-  
+  //
+  if (
+    Click_classList_value === "all_poz_akecva" ||
+    Click_classList_value === "all_poz_akecva active_"
+  ) {
+    const panel = document.querySelectorAll(
+      "." + PozSusName + " .pozsus_contenti > div"
+    );
+    panel.forEach((e) => {
+      if (e.style.maxHeight) {
+        e.style.maxHeight = null;
+      } else {
+        e.style.maxHeight = e.scrollHeight + "px";
+      }
+    });
+    Shedegi(PozSusName);
+    event.target.classList.toggle("active_");
+  }
+  //
 });
 document.addEventListener("change", function (event) {
-  const FindClicPozsus_tf_X = event.target.parentNode.id;
+  const PozSusName = PozSus_Name(event);
   const Aqtiuri_elementi_val = event.target.classList.value;
+  const FindClicPozsus_tf_X = event.target.parentNode.id;
+
   if (FindClicPozsus_tf_X === "id_grid_pozsus_tavi") {
-    const changeObj_classListval = Aqtiuri_elementi_val;
-    const FindClicPozSusClassListval =
-      event.target.parentNode.parentNode.parentNode.classList.value;
-    const PozSusName = FindClicPozSusClassListval.substring(
-      0,
-      FindClicPozSusClassListval.indexOf(" ", 0)
-    );
     // start change - შედეგებში
     if (
-      changeObj_classListval !== "gundsaxeli_val" &&
-      changeObj_classListval !== "pozadd_val"
+      Aqtiuri_elementi_val !== "gundsaxeli_val" &&
+      Aqtiuri_elementi_val !== "pozadd_val"
     ) {
       Shedegi(PozSusName);
       SabolooMogeba_OriFunqcia(PozSusName);
     }
     // end change - შედეგებში
     // start change - ბაზრის დამატება
-    if (changeObj_classListval === "pozadd_val") {
+    if (Aqtiuri_elementi_val === "pozadd_val") {
       const BazriSelect_obj = document.querySelector(
         "." + PozSusName + " .pozadd_val"
       );
@@ -107,11 +120,11 @@ document.addEventListener("change", function (event) {
       const pzsus_n = event.target.parentNode.getAttribute("data-pozsusname");
       const pz_n = event.target.parentNode.getAttribute("data-bazariname");
       const nextElement = event.target.parentNode.nextElementSibling;
+
       if (!nextElement) {
         const tf_name = event.target.parentNode.id;
         const tf_nomeri =
           parseInt(tf_name.substring(tf_name.indexOf("-") + 1, 30)) + 1;
-
         const Search_element = document.querySelector(
           "." +
             pzsus_n +
@@ -132,7 +145,7 @@ document.addEventListener("change", function (event) {
       Shejamdes === 1 ? Fsonebis_Shejameba(pzsus_n, pz_n) : "";
     }
   }
-  // end ტოტალ ფსონებში კუში და ფსონის მოსემნა  flexsi_bazari
+  // end ტოტალ ფსონებში კუში და ფსონის მოსემნა
   // start ბირჯაზე რეალობის გაფერადება
   if (Aqtiuri_elementi_val.substring(0, 14) === "bazari_realoba") {
     if (parseFloat(event.target.value) >= 0) {
@@ -152,6 +165,31 @@ document.addEventListener("change", function (event) {
     SabolooMogebaTotal_da_BirjisFsonebidan(1, pzsus_n, pz_n);
   }
   // end ბირჟაზე რეალობის რედაქტირება
+  // start გოლების ბაზარზე პოზიციის არჩევის დაფიქსირება
+  // და ბაზრის შაბლონის დამატებაც
+  if (
+    Aqtiuri_elementi_val === "GolebisPoziciebi" ||
+    Aqtiuri_elementi_val === "GolebisPoziciebi activ"
+  ) {
+    const button_obj = event.target.parentNode;
+    const div_obj = button_obj.nextElementSibling;
+    let SelectPoz_val = event.target.value;
+    SelectPoz_val = SelectPoz_val.replace(".", "_");
+    const CreateBzariName = FindClicPozsus_tf_X + "_" + SelectPoz_val;
+    const d = AqtiuriBazrebi_spisoki(PozSusName).indexOf(CreateBzariName);
+
+    if (d === -1) {
+      button_obj.id = CreateBzariName;
+      div_obj.id = CreateBzariName;
+      event.target.disabled = true;
+      const shab = HtmlShabloni_Pozsus_Sawyisi_Shabloni_Golebis(
+        PozSusName,
+        CreateBzariName
+      );
+      div_obj.insertAdjacentHTML("beforeend", shab);
+    }
+  }
+  // end გოლების ბაზარზე პოზიციის არჩევის დაფიქსირება
 });
 
 // html - შაბლონის გამოძახება ჩასმა
@@ -186,16 +224,25 @@ function HtmlShabloni_BazrebiAdd(
     const PozSus_ParentNode_obj = document.querySelector(
       "." + PozSusName + " .pozsus_contenti"
     );
-    PozSus_ParentNode_obj.insertAdjacentHTML(
-      "beforeend",
-      HtmlShabloni_bazarebis_qudi(
-        PozSusName,
-        BazrisSaxelivalue,
-        BazrisSaxeliclass
-      )
-    );
-    Poziciebit_da_Inputebit_Shevseba_Birjis(PozSusName, BazrisSaxeliclass);
-    PoziciebitShevseba_option_is(PozSusName, BazrisSaxeliclass);
+
+    if (BazrisSaxeliclass.indexOf("Golebi") === -1) {
+      PozSus_ParentNode_obj.insertAdjacentHTML(
+        "beforeend",
+        HtmlShabloni_bazarebis_qudi(
+          PozSusName,
+          BazrisSaxelivalue,
+          BazrisSaxeliclass
+        )
+      );
+      Poziciebit_da_Inputebit_Shevseba_Birjis(PozSusName, BazrisSaxeliclass);
+      PoziciebitShevseba_option_is(PozSusName, BazrisSaxeliclass);
+    } else {
+      const bazariName = Bazrebi?.[BazrisSaxeliclass]?.name_vrclad;
+      PozSus_ParentNode_obj.insertAdjacentHTML(
+        "beforeend",
+        HtmlShabloni_bazarebis_qudi_Golebi(bazariName, BazrisSaxeliclass)
+      );
+    }
   }
 }
 //
@@ -672,7 +719,75 @@ function ShedegisFormireba(t1, dz1, t2, dz2, add_bazrebi_aray) {
         )
       : "";
   }
+  // Golebi = გოლები
+  add_bazrebi_aray.forEach((e) => {
+    // Dz_Golebi = ძირითადი  გოლები
+    if (e.indexOf("Dz_Golebi") === 0) {
+      const bz_g = parseInt(e[10]);
+      let dz1_mim_dz2_nt_ = "dz1_mim_dz2_nt_" + bz_g;
+      let dz1_mim_dz2_m_ = "dz1_mim_dz2_m_" + bz_g;
 
+      dz1 + dz2 <= bz_g
+        ? aray_poz.push(
+            Bazrebi?.Dz_Golebi?.mog_poz?.[dz1_mim_dz2_nt_]
+              ? Bazrebi?.Dz_Golebi?.mog_poz?.[dz1_mim_dz2_nt_]
+              : ""
+          )
+        : "";
+      dz1 + dz2 > bz_g
+        ? aray_poz.push(
+            Bazrebi?.Dz_Golebi?.mog_poz?.[dz1_mim_dz2_m_]
+              ? Bazrebi?.Dz_Golebi?.mog_poz?.[dz1_mim_dz2_m_]
+              : ""
+          )
+        : "";
+    }
+    // Tp_Golebi = ტაიმი პირველი  გოლები
+    if (e.indexOf("Tp_Golebi") === 0) {
+      const bz_g = parseInt(e[10]);
+      let t1_mim_t2_nt_ = "t1_mim_t2_nt_" + bz_g;
+      let t1_mim_t2_m_ = "t1_mim_t2_m_" + bz_g;
+
+      t1 + t2 <= bz_g
+        ? aray_poz.push(
+            Bazrebi?.Tp_Golebi?.mog_poz?.[t1_mim_t2_nt_]
+              ? Bazrebi?.Tp_Golebi?.mog_poz?.[t1_mim_t2_nt_]
+              : ""
+          )
+        : "";
+      t1 + t2 > bz_g
+        ? aray_poz.push(
+            Bazrebi?.Tp_Golebi?.mog_poz?.[t1_mim_t2_m_]
+              ? Bazrebi?.Tp_Golebi?.mog_poz?.[t1_mim_t2_m_]
+              : ""
+          )
+        : "";
+    }
+    // Tm_Golebi = ტაიმი მეორე  გოლები
+    if (e.indexOf("Tm_Golebi") === 0) {
+      const bz_g = parseInt(e[10]);
+      let dz1_gam_t1_mim_dz2_gam_t2_nt_ =
+        "dz1_gam_t1_mim_dz2_gam_t2_nt_" + bz_g;
+      let dz1_gam_t1_mim_dz2_gam_t2_m_ = "dz1_gam_t1_mim_dz2_gam_t2_m_" + bz_g;
+
+      dz1 - t1 + (dz2 - t2) <= bz_g
+        ? aray_poz.push(
+            Bazrebi?.Tm_Golebi?.mog_poz?.[dz1_gam_t1_mim_dz2_gam_t2_nt_]
+              ? Bazrebi?.Tm_Golebi?.mog_poz?.[dz1_gam_t1_mim_dz2_gam_t2_nt_]
+              : ""
+          )
+        : "";
+      dz1 - t1 + (dz2 - t2) > bz_g
+        ? aray_poz.push(
+            Bazrebi?.Tm_Golebi?.mog_poz?.[dz1_gam_t1_mim_dz2_gam_t2_m_]
+              ? Bazrebi?.Tm_Golebi?.mog_poz?.[dz1_gam_t1_mim_dz2_gam_t2_m_]
+              : ""
+          )
+        : "";
+    }
+  });
+  //
+  //
   return aray_poz;
 }
 //
@@ -786,33 +901,8 @@ function PanelisZomebi_Gasworeba(pzsus_n, pz_n, tf_nomeri) {
     "." + pzsus_n + " .pozsus_contenti div#" + pz_n
   );
   panel.style.maxHeight = panel.scrollHeight + "px";
-  const AxladDamatebuli_fsoni_strofi__obj = document.querySelector(
-    "." +
-      pzsus_n +
-      " .pozsus_contenti div#" +
-      pz_n +
-      " #pozsus_tf-" +
-      tf_nomeri +
-      " .pozsus_kushi"
-  );
-  //  console.log(AxladDamatebuli_fsoni_strofi__obj);
-  //  console.log(window.pageYOffset);
-  // AxladDamatebuli_fsoni_strofi__obj.scrollIntoView(false);
-  // let newDoc = new DOMParser().parseFromString(AxaliFsoni, "text/html");
-  // let hh = newDoc.getElementsByTagName("div")[0];
-  // console.log(hh);
-  // console.log(newDoc);
-  //  AxladDamatebuli_fsoni_strofi__obj.scrollIntoView({
-  //   block: "end",
-  //   behavior: "smooth",
-  // });
-  // window.pageYOffset = document.documentElement.scrollTop;
-  // window.pageYOffset;
-  // window.scrollTo(0,window.pageYOffset + 500);
-  // console.log(document.scrollingElement || document.body);
-  // var scrollingElement = (document.scrollingElement || document.body);
-  // scrollingElement.scrollTop = scrollingElement.scrollHeight;
 }
+//
 function Shedegi(PozSusName) {
   const taimi1_obj = document.querySelector("." + PozSusName + " .taimi1_val");
   const taimi2_obj = document.querySelector("." + PozSusName + " .taimi2_val");
@@ -1035,9 +1125,28 @@ function SabolooMogeba_OriFunqcia(PozSusName) {
   SabolooMogebebisAmokrifvaBazrebidan(PozSusName);
 }
 //
+function PozSus_Name(event) {
+  let n = "";
+  switch (event.composedPath().length) {
+    case 9:
+      n = event.composedPath()[2].classList.value;
+      break;
+    case 10:
+      n = event.composedPath()[3].classList.value;
+      break;
+    case 14:
+      n = event.composedPath()[7].classList.value;
+      break;
+  }
+  n = n.substring(0, n.indexOf(" "));
+  return n;
+}
 
 /*  
     const f = "Tp_1x2";
     const dd = "_1_1x_12";  
     const formula =   Bazrebi?.[f]?.mog_poz?.[dd];
+
+     let newDoc = new DOMParser().parseFromString(AxaliFsoni, "text/html");
+   let hh = newDoc.getElementsByTagName("div")[0];
     */

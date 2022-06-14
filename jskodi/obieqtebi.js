@@ -195,4 +195,92 @@ const Bazrebi = {
       dz1_t_dz2_da_dz1_m_3_da_dz2_m_3: ["Dz_zusti", "X-X"],
     },
   },
+  // Dz_Golebi = ძირითადი  გოლები
+  Dz_Golebi: {
+    name: "ძირ: გოლები",
+    name_vrclad: "ძირითადი: გოლები",
+    poz_za: ["ნაკ", "მეტ"],
+    poz_pro: [""],
+    mog_poz: {
+      dz1_mim_dz2_nt_0: ["Dz_Golebi_0_5", "ნაკ"], // 0.5 გოლი
+      dz1_mim_dz2_m_0: ["Dz_Golebi_0_5", "მეტ"], // 0.5 გოლი
+      dz1_mim_dz2_nt_1: ["Dz_Golebi_1_5", "ნაკ"], // 1.5 გოლი
+      dz1_mim_dz2_m_1: ["Dz_Golebi_1_5", "მეტ"], // 1.5 გოლი
+      dz1_mim_dz2_nt_2: ["Dz_Golebi_2_5", "ნაკ"], // 2.5 გოლი
+      dz1_mim_dz2_m_2: ["Dz_Golebi_2_5", "მეტ"], // 2.5 გოლი
+      dz1_mim_dz2_nt_3: ["Dz_Golebi_3_5", "ნაკ"], // 3.5 გოლი
+      dz1_mim_dz2_m_3: ["Dz_Golebi_3_5", "მეტ"], // 3.5 გოლი
+      dz1_mim_dz2_nt_4: ["Dz_Golebi_4_5", "ნაკ"], // 4.5 გოლი
+      dz1_mim_dz2_m_4: ["Dz_Golebi_4_5", "მეტ"], // 4.5 გოლი
+      dz1_mim_dz2_nt_5: ["Dz_Golebi_5_5", "ნაკ"], // 5.5 გოლი
+      dz1_mim_dz2_m_5: ["Dz_Golebi_5_5", "მეტ"], // 5.5 გოლი
+      dz1_mim_dz2_nt_6: ["Dz_Golebi_6_5", "ნაკ"], // 6.5 გოლი
+      dz1_mim_dz2_m_6: ["Dz_Golebi_6_5", "მეტ"], // 6.5 გოლი
+      dz1_mim_dz2_nt_7: ["Dz_Golebi_7_5", "ნაკ"], // 7.5 გოლი
+      dz1_mim_dz2_m_7: ["Dz_Golebi_7_5", "მეტ"], // 7.5 გოლი
+      dz1_mim_dz2_nt_8: ["Dz_Golebi_8_5", "ნაკ"], // 8.5 გოლი
+      dz1_mim_dz2_m_8: ["Dz_Golebi_8_5", "მეტ"], // 8.5 გოლი
+      dz1_mim_dz2_nt_9: ["Dz_Golebi_9_5", "ნაკ"], // 9.5 გოლი
+      dz1_mim_dz2_m_9: ["Dz_Golebi_9_5", "მეტ"], // 9.5 გოლი
+    },
+  },
+  // Tp_Golebi = ტაიმი პირველი  გოლები
+  Tp_Golebi: {
+    name: "ტპ: გოლები",
+    name_vrclad: "პირველი ტაიმი: გოლები",
+    poz_za: ["ნაკ", "მეტ"],
+    poz_pro: [""],
+    mog_poz: {
+      t1_mim_t2_nt_0: ["Tp_Golebi_0_5", "ნაკ"], // 0.5 გოლი
+      t1_mim_t2_m_0: ["Tp_Golebi_0_5", "მეტ"], // 0.5 გოლი
+      t1_mim_t2_nt_1: ["Tp_Golebi_1_5", "ნაკ"], // 1.5 გოლი
+      t1_mim_t2_m_1: ["Tp_Golebi_1_5", "მეტ"], // 1.5 გოლი
+      t1_mim_t2_nt_2: ["Tp_Golebi_2_5", "ნაკ"], // 2.5 გოლი
+      t1_mim_t2_m_2: ["Tp_Golebi_2_5", "მეტ"], // 2.5 გოლი
+      t1_mim_t2_nt_3: ["Tp_Golebi_3_5", "ნაკ"], // 3.5 გოლი
+      t1_mim_t2_m_3: ["Tp_Golebi_3_5", "მეტ"], // 3.5 გოლი
+      t1_mim_t2_nt_4: ["Tp_Golebi_4_5", "ნაკ"], // 4.5 გოლი
+      t1_mim_t2_m_4: ["Tp_Golebi_4_5", "მეტ"], // 4.5 გოლი
+      t1_mim_t2_nt_5: ["Tp_Golebi_5_5", "ნაკ"], // 5.5 გოლი
+      t1_mim_t2_m_5: ["Tp_Golebi_5_5", "მეტ"], // 5.5 გოლი
+      t1_mim_t2_nt_6: ["Tp_Golebi_6_5", "ნაკ"], // 6.5 გოლი
+      t1_mim_t2_m_6: ["Tp_Golebi_6_5", "მეტ"], // 6.5 გოლი
+      t1_mim_t2_nt_7: ["Tp_Golebi_7_5", "ნაკ"], // 7.5 გოლი
+      t1_mim_t2_m_7: ["Tp_Golebi_7_5", "მეტ"], // 7.5 გოლი
+      t1_mim_t2_nt_8: ["Tp_Golebi_8_5", "ნაკ"], // 8.5 გოლი
+      t1_mim_t2_m_8: ["Tp_Golebi_8_5", "მეტ"], // 8.5 გოლი
+      t1_mim_t2_nt_9: ["Tp_Golebi_9_5", "ნაკ"], // 9.5 გოლი
+      t1_mim_t2_m_9: ["Tp_Golebi_9_5", "მეტ"], // 9.5 გოლი
+    },
+  },
+  // Tm_Golebi = ტაიმი მეორე  გოლები
+  Tm_Golebi: {
+    name: "ტმ: გოლები",
+    name_vrclad: "მეორე ტაიმი: გოლები",
+    poz_za: ["ნაკ", "მეტ"],
+    poz_pro: [""],
+    mog_poz: {
+      dz1_gam_t1_mim_dz2_gam_t2_nt_0: ["Tm_Golebi_0_5", "ნაკ"], // 0.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_0: ["Tm_Golebi_0_5", "მეტ"], // 0.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_1: ["Tm_Golebi_1_5", "ნაკ"], // 1.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_1: ["Tm_Golebi_1_5", "მეტ"], // 1.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_2: ["Tm_Golebi_2_5", "ნაკ"], // 2.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_2: ["Tm_Golebi_2_5", "მეტ"], // 2.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_3: ["Tm_Golebi_3_5", "ნაკ"], // 3.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_3: ["Tm_Golebi_3_5", "მეტ"], // 3.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_4: ["Tm_Golebi_4_5", "ნაკ"], // 4.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_4: ["Tm_Golebi_4_5", "მეტ"], // 4.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_5: ["Tm_Golebi_5_5", "ნაკ"], // 5.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_5: ["Tm_Golebi_5_5", "მეტ"], // 5.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_6: ["Tm_Golebi_6_5", "ნაკ"], // 6.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_6: ["Tm_Golebi_6_5", "მეტ"], // 6.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_7: ["Tm_Golebi_7_5", "ნაკ"], // 7.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_7: ["Tm_Golebi_7_5", "მეტ"], // 7.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_8: ["Tm_Golebi_8_5", "ნაკ"], // 8.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_8: ["Tm_Golebi_8_5", "მეტ"], // 8.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_nt_9: ["Tm_Golebi_9_5", "ნაკ"], // 9.5 გოლი
+      dz1_gam_t1_mim_dz2_gam_t2_m_9: ["Tm_Golebi_9_5", "მეტ"], // 9.5 გოლი
+    },
+  },
+  // 
 };
